@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\TaxResidence;
+use App\Models\Taxpayer;
 
-class AdditionalDataType extends Model
+class DocumentType extends Model
 {
     use HasFactory;
 
-    public function taxResidences()
+    public function taxpayers()
     {
-        return $this->hasMany(TaxResidence::class);
+        return $this->hasMany(Taxpayer::class);
     }
 }

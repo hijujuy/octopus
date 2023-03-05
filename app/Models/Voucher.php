@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\VoucherType;
 use App\Models\SalePoint;
+use App\Models\ConceptType;
 
 class Voucher extends Model
 {
@@ -13,12 +14,17 @@ class Voucher extends Model
 
     public function voucherType()
     {
-        return $this->hasOne(VoucherType::class);
+        return $this->belongsTo(VoucherType::class);
     }
 
     public function salePoint()
     {
-        return $this->hasOne(SalePoint::class);
+        return $this->belongsTo(SalePoint::class);
+    }
+
+    public function conceptType()
+    {
+        return $this->belongsTo(ConceptType::class);
     }
 
 }

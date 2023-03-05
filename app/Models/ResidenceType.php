@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\TaxResidence;
 
-class AdditionalDataType extends Model
+class ResidenceType extends Model
 {
     use HasFactory;
 
