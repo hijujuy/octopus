@@ -5,7 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\VoucherTotal;
+
 class TributeType extends Model
 {
     use HasFactory;
+
+    public function voucherTotals()
+    {
+        return $this->belongsToMany(VoucherTotal::class);
+    }
 }

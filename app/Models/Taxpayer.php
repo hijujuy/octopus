@@ -12,6 +12,7 @@ use App\Models\Delegation;
 use App\Models\KeyState;
 use App\Models\KeyType;
 use App\Models\SalePoint;
+use App\Models\DocumentType;
 
 class Taxpayer extends Model
 {
@@ -56,4 +57,11 @@ class Taxpayer extends Model
     {
         return $this->hasMany(SalePoint::class);
     }
+
+    public function documentType()
+    {
+        return $this->belongsTo(DocumentType::class);
+    }
+
+
 }
