@@ -18,6 +18,14 @@ class Taxpayer extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'firstname',
+        'lastname',
+        'business_name',
+        'document_type_id',
+        'person_id',
+    ];
+
     public function delegation()
     {
         return $this->belongsTo(Delegation::class);

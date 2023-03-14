@@ -30,6 +30,12 @@ return [
 
     'disks' => [
 
+        'certs' => [
+            'driver'    => 'local',
+            'root'      => storage_path('app/certs'),
+            'throw'     => true,
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

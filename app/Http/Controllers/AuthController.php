@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 use App\Models\User;
+use App\Models\HttpCode;
 
 class AuthController extends Controller
 {
@@ -31,7 +33,7 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Unauthorized'], HttpCode::UNAUTHORIZED);
         }
 
         return $this->respondWithToken($token);
@@ -79,7 +81,7 @@ class AuthController extends Controller
 
         if ($validator->fails())
         {
-            return response()->json($validator->errors()->toJson(), 400);
+            return response()->json($validator->errors()->toJson(), HttpCode::BAD_REQUEST);
         }
 
         $user = User::create(array_merge(
@@ -90,7 +92,7 @@ class AuthController extends Controller
         return response()->json([
             'message' => '¡User registered successfully!',
             'user' => $user
-        ], 201);
+        ], HttpCode::CREATED);
     }
 
     /**
